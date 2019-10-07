@@ -15,7 +15,7 @@
       <el-table-column
         prop="date"
         label="账号"
-        width="150">
+        width="180">
       </el-table-column>
       <el-table-column
         prop="name"
@@ -50,14 +50,13 @@
       <el-table-column
         prop="city"
         label="创建时间"
-        width="120">
+        width="180">
       </el-table-column>
 
       <el-table-column
-        fixed="right"
         label="操作"
         align="center"
-        width="150">
+        width="180">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -117,7 +116,7 @@ export default {
       }],
       page_index: 1, // 页数
       page_total: 4, // 总页数
-      page_size: 10,
+      page_size: 10
     }
   },
   created() {
@@ -125,11 +124,10 @@ export default {
   },
   methods: {
     handleEdit(index, row) {
-
       console.log(index, row);
-
       this.$emit("editDialog",row)
     },
+
     handleDelete(index, row) {
       this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
         confirmButtonText: '确定',
@@ -155,7 +153,6 @@ export default {
       this.page_size = item.page_limit;
       // this.fetchData() //改变页码，重新渲染页面
     },
-
 
     //获取查询数据
     fetchData() {

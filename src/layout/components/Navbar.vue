@@ -11,8 +11,8 @@
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <el-dropdown-item>修改密码</el-dropdown-item>
-          <el-dropdown-item divided>
+<!--          <el-dropdown-item>修改密码</el-dropdown-item>-->
+          <el-dropdown-item>
             <span style="display:block;" @click="logout">退出系统</span>
           </el-dropdown-item>
         </el-dropdown-menu>

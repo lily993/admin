@@ -58,7 +58,6 @@
       >
       </el-table-column>
       <el-table-column
-        fixed="right"
         prop="status"
         label="状态"
         align="center"

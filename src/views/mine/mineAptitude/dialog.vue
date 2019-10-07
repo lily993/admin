@@ -46,6 +46,7 @@ export default {
       }
       this.$emit("addDialog", false)
     },
+
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },

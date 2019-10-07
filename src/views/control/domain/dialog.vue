@@ -10,12 +10,12 @@
       <el-form-item label="网站名称" prop="name">
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
-      <el-form-item label="域名网址" prop="name">
-        <el-input v-model="ruleForm.name"></el-input>
+      <el-form-item label="域名网址" prop="url">
+        <el-input v-model="ruleForm.url"></el-input>
       </el-form-item>
 
-      <el-form-item label="是否生效" prop="name">
-        <el-select v-model="ruleForm.region" placeholder="请选择" class="selectW">
+      <el-form-item label="是否生效" prop="using">
+        <el-select v-model="ruleForm.using" placeholder="请选择" class="selectW">
           <el-option label="生效" value="1"></el-option>
           <el-option label="停用" value="2"></el-option>
         </el-select>
@@ -24,8 +24,8 @@
     </el-form>
 
   <span slot="footer" class="dialog-footer">
-    <el-button @click="handleClose(1)">取 消</el-button>
-    <el-button type="primary" @click="handleClose(2)">确 定</el-button>
+    <el-button @click="handleClose()">取 消</el-button>
+    <el-button type="primary" @click="handleClose('ruleForm')">确 定</el-button>
   </span>
     </el-dialog>
   </div>
@@ -44,27 +44,49 @@ export default {
   },
   data() {
     return {
-      input3: '',
-      select: '',
+
       ruleForm: {
         name: '',
+        url:'',
+        using:''
       },
       rules: {
         name: [
-          { required: true, message: '请输入活动名称', trigger: 'blur' },
-          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          { required: true, message: '请输入网站名称', trigger: 'blur' },
+        ],
+        url: [
+          { required: true, message: '请输入域名', trigger: 'blur' },
+        ],
+        using: [
+          { required: true, message: '请选择是否生效', trigger: 'change' },
         ],
         }
     }
   },
   methods: {
     handleClose(id){
-      if(id==1){
-
+      if(id=='ruleForm'){
+        this.$refs[id].validate((valid) => {
+          if (valid) {
+            this.$emit("addDialog",false);
+          } else {
+            this.$message('请按照正确格式填写');
+            return false;
+          }
+        });
       }else {
-
+        this.$emit("addDialog",false);
+        this.initData();
       }
-      this.$emit("addDialog",false)
+
+    },
+    //表单数据初始化
+    initData(){
+      this.ruleForm= {
+        name: '',
+        url:'',
+        using:''
+      };
     }
   }
 }

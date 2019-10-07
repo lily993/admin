@@ -26,7 +26,6 @@
       </el-table-column>
 
       <el-table-column
-        fixed="right"
         label="操作"
         align="center">
         <template slot-scope="scope">
@@ -35,23 +34,31 @@
             @click="handleEdit(scope.$index, scope.row)">配置权限</el-button>
           <el-button
             size="mini"
-            @click="handleEdit1(scope.$index, scope.row)">配置用户</el-button>
+            @click="handleEditN(scope.$index, scope.row)">配置用户</el-button>
         </template>
       </el-table-column>
     </el-table>
 
     <!--翻页-->
     <page-nation :total="page_total" @pageChange="pageChange"></page-nation>
+    <!--配置权限 -->
+    <deploy :dialogVisible="dialogVisible" :redact="redact" @editDialog="editDialog"></deploy>
+    <!--  配置用户  -->
+    <deploy-n :dialogVisibleN="dialogVisibleN" :redactN="redactN" @editDialogN="editDialogN"></deploy-n>
   </div>
 </template>
 
 <script>
   import pageNation from '@/components/page'
+  import deploy from './deploy'
+  import deployN from './deployN'
 
 export default {
   name: 'tableZ',
   components: {
-    pageNation
+    pageNation,
+    deploy,
+    deployN
   },
   data() {
     return {
@@ -88,26 +95,33 @@ export default {
       page_index: 1, // 页数
       page_total: 4, // 总页数
       page_size: 10,
+      dialogVisible:false,
+      redact:{},
+      dialogVisibleN:false,
+      redactN:{},
+
     }
   },
   created() {
     this.fetchData()
   },
   methods: {
+    //配置权限
     handleEdit(index, row) {
-
-      // console.log(index, row);
-
-      // this.$emit("editDialog",row)
+      this.dialogVisible=true;
     },
-    handleEdit1(index, row) {
-
-      // console.log(index, row);
-
-      // this.$emit("editDialog",row)
+    //配置用户
+    handleEditN(index, row) {
+      this.dialogVisibleN=true;
     },
 
+    editDialog(val){
+      this.dialogVisible=val;
+    },
 
+    editDialogN(val){
+      this.dialogVisibleN=val;
+    },
     //翻页
     pageChange (item) {
       console.log(item)

@@ -5,22 +5,20 @@
     </div>
 
     <table-z @editDialog="editDialog"></table-z>
-    <!--弹框-->
-    <dialogZ :title="title" :dialogVisible="dialogVisible" :redact="redact"></dialogZ>
   </div>
 </template>
 
 <script>
 import tableZ from './tabel'
 import searchZ from './search'
-import dialogZ from './dialog'
+
 
 export default {
   name: 'user',
   components:{
     tableZ,
     searchZ,
-    dialogZ
+
   },
   data() {
     return {

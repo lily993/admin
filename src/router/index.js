@@ -70,7 +70,7 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/control/user',
     name: '系统功能',
-    meta: { title: '系统功能', icon: 'example' },
+    meta: { title: '系统功能', icon: 'form' },
     children: [
       {
         path: 'user',
@@ -128,37 +128,37 @@ export const asyncRoutes = [
         path: 'orderList',
         name: '订单列表',
         component: () => import('@/views/order/orderList/index'),
-        meta: { title: '订单列表', icon: 'tree' }
+        meta: { title: '订单列表', icon: 'eye' }
       },
       {
         path: 'orderLead',
         name: '导入订单',
         component: () => import('@/views/order/orderLead/index'),
-        meta: { title: '导入订单', icon: 'tree' }
+        meta: { title: '导入订单', icon: 'eye' }
       },
       {
         path: 'orderAllot',
         name: '分配订单',
         component: () => import('@/views/order/orderAllot/index'),
-        meta: { title: '分配订单', icon: 'tree' }
+        meta: { title: '分配订单', icon: 'eye' }
       },
       {
         path: 'leadRecord',
         name: '订单导入记录',
         component: () => import('@/views/order/leadRecord/index'),
-        meta: { title: '订单导入记录', icon: 'tree' }
+        meta: { title: '订单导入记录', icon: 'eye' }
       },
       {
         path: 'allotRecord',
         name: '订单分配记录',
         component: () => import('@/views/order/allotRecord/index'),
-        meta: { title: '订单分配记录', icon: 'tree' }
+        meta: { title: '订单分配记录', icon: 'eye' }
       },
       {
         path: 'domainRecord',
         name: '域名订单提交记录',
         component: () => import('@/views/order/domainRecord/index'),
-        meta: { title: '域名订单提交记录', icon: 'tree' }
+        meta: { title: '域名订单提交记录', icon: 'eye' }
       },
     ]
   },
@@ -168,19 +168,19 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/port/portLeaf',
     name: '接口管理',
-    meta: { title: '接口管理', icon: 'example' },
+    meta: { title: '接口管理', icon: 'nested' },
     children: [
       {
         path: 'portLeaf',
         name: '趣头条-枫叶',
         component: () => import('@/views/port/portLeaf/index'),
-        meta: { title: '趣头条-枫叶', icon: 'tree' }
+        meta: { title: '趣头条-枫叶', icon: 'link' }
       },
       {
         path: 'portHare',
         name: '趣头条-赤兔',
         component: () => import('@/views/port/portHare/index'),
-        meta: { title: '趣头条-赤兔', icon: 'tree' }
+        meta: { title: '趣头条-赤兔', icon: 'link' }
       }
     ]
   },
@@ -190,32 +190,26 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/mine/minePassword',
     name: '个人功能',
-    meta: { title: '个人功能', icon: 'example' },
+    meta: { title: '个人功能', icon: 'user' },
     children: [
       {
         path: 'minePassword',
         name: '修改密码',
         component: () => import('@/views/mine/minePassword/index'),
-        meta: { title: '修改密码', icon: 'tree' }
+        meta: { title: '修改密码', icon: 'table' }
       },
       {
         path: 'mineAptitude',
         name: '我的资质',
         component: () => import('@/views/mine/mineAptitude/index'),
-        meta: { title: '我的资质', icon: 'tree' }
+        meta: { title: '我的资质', icon: 'table' }
       },
       {
         path: 'mineAccount',
         name: '我的账户',
         component: () => import('@/views/mine/mineAccount/index'),
-        meta: { title: '我的账户', icon: 'tree' }
-      },
-      {
-        path: 'table',
-        name: '表格',
-        component: () => import('@/views/table/index'),
-        meta: { title: '表格', icon: 'tree' }
-      },
+        meta: { title: '我的账户', icon: 'table' }
+      }
     ]
   },
   // 404 page must be placed at the end !!!
